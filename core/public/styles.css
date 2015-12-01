@@ -253,3 +253,17 @@ li a {
     opacity: .75;
     color: black;
 }
+
+
+
+
+/*Products*/
+
+li {
+    list-style: none;
+}
+
+.itemscontained img {
+    width: 200px;
+    height: 200px;
+}

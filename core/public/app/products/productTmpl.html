@@ -1,3 +1,13 @@
 <h1>Hello</h1>
 <p>Testing</p>
-<p>products</p>
+<p>Products</p>
+<div ng-controller="productCtrl">
+	<div class="itemscontained">
+		<ul ng-repeat="items in items">
+			<li><img ng-src="{{ items.imgpath }}" alt=""></li>
+			<li>Base: {{ items.basetype }} </li>
+			<li>Wire: {{ items.wiretype }} </li>
+			<li>Price: {{ items.price }}</li>
+		</ul>
+	</div>
+</div>

@@ -18,9 +18,9 @@ mongoose.connection.once('open', function() {
 
 app.get('/api/item', itemsCtrl.getItems);
 app.post('/api/item', itemsCtrl.addItem);
+app.delete('/api/item/getById', itemsCtrl.removeItem);
 
-
-app.use(express.static('./core/public/index.html'));
+app.use(express.static('./core/public/'));
 
 app.listen(port, function () {
 	console.log('Listening on ' + port);

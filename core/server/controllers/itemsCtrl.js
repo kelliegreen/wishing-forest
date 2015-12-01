@@ -17,5 +17,15 @@ module.exports = {
 				res.json(data);
 			}
 		});
+	},
+	removeItem: function( req, res ) {
+		Item.findByIdAndRemove(req.query.id, function( err, data ) {
+			if (err) {
+				res.status(500).send(err);
+			} else {
+				res.send(data);
+			}
+		});
 	}
+		
 };

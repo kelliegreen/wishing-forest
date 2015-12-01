@@ -10,6 +10,7 @@ angular.module('wishingforest', ['ui.router']).config(function ($stateProvider, 
 		.state('products', {
 			url:'/products',
 			templateUrl: './app/products/productTmpl.html',
+			controller: 'productCtrl'
 		})
 		.state('contact', {
 			url: '/contact',
