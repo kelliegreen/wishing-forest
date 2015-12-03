@@ -258,12 +258,45 @@ li a {
 
 
 /*Products*/
+.containproducts {
+    margin-top: 30px;
+}
 
 li {
     list-style: none;
 }
 
+button {
+    margin-bottom: 25px;
+}
+
 .itemscontained img {
+    width: 200px;
+    height: 200px;
+}
+
+.itemscontained {
+    padding-left: 20px;
+}
+
+.cart {
+    float: right;
+    margin-right: 20px;
+}
+a {
+    color: black;
+}
+
+a:hover {
+    color: white;
+}
+
+/*Cart*/
+.cartcontained {
+    padding-left: 20px;
+}
+
+.cartcontained img {
     width: 200px;
     height: 200px;
 }

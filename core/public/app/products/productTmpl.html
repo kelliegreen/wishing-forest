@@ -1,13 +1,19 @@
-<h1>Hello</h1>
-<p>Testing</p>
-<p>Products</p>
-<div ng-controller="productCtrl">
-	<div class="itemscontained">
-		<ul ng-repeat="items in items">
-			<li><img ng-src="{{ items.imgpath }}" alt=""></li>
-			<li>Base: {{ items.basetype }} </li>
-			<li>Wire: {{ items.wiretype }} </li>
-			<li>Price: {{ items.price }}</li>
-		</ul>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+<div class="containproducts">
+	<div class="cart">
+		<a href="/#/cart"><i class="fa fa-shopping-cart fa-2x"></i></a>
+	</div>
+	<div ng-controller="productCtrl">
+		<div class="itemscontained">
+			<ul ng-repeat="item in items">
+				<li><img ng-src="{{ item.imgpath }}" alt=""></li>
+				<li><strong>Base:</strong> {{ item.basetype }} </li>
+				<li><strong>Wire:</strong> {{ item.wiretype }} </li>
+				<li><strong>Price:</strong> ${{ item.price }}</li>
+				<button ng-click="addCart(item)">Add to Cart</button>
+			</ul>
+		</div>
 	</div>
 </div>
