@@ -6,6 +6,7 @@ var express = require('express'),
 	session = require('express-session'),
 	passport = require('passport'),
 	cookieParser = require('cookie-parser'),
+	keys = require('./keys'),
 	itemsCtrl = require('./core/server/controllers/itemsCtrl'),
 	app = express(),
 	port = 9000,
@@ -16,7 +17,7 @@ require('./core/server/config/passport')(passport);
 app.use(bodyParser.json());
 app.use(cors());
 app.use(cookieParser());
-app.use(session({ secret: 'fairi3sf0r1if3' }));
+app.use(session({ secret: keys.secret }));
 app.use(passport.initialize());
 app.use(passport.session());
 
