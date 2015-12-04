@@ -1,1 +1,16 @@
-<h1>Testing Manage</h1>
+<div class="manage">
+	<div class="logout">
+		<button ng-click="out()">Logout</button>
+	</div>
+	<div ng-controller="manageCtrl">
+		<div class="itemscontained">
+			<ul ng-repeat="item in items">
+				<li><img ng-src="{{ item.imgpath }}" alt=""></li>
+				<li><strong>Type:</strong> {{ item.itemtype }} </li>
+				<li><strong>Details:</strong> {{ item.iteminfo }} </li>
+				<li><strong>Available:</strong> {{ item.available }}</li>
+				<li><strong>Price:</strong> {{ item.price | currency : "$" }}</li>
+			</ul>
+		</div>
+	</div>
+</div>

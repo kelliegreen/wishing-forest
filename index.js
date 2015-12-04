@@ -33,18 +33,24 @@ app.post('/api/item', itemsCtrl.addItem);
 app.delete('/api/item/getById', itemsCtrl.removeItem),
 app.post('/api/signup', passport.authenticate('local-signup', { failure: '/#/login' }), 
 function( req, res ) {
-	console.log(req);
 	res.send(req.user);
 });
 
-app.post('/api/login', passport.authenticate('local-login', {
-	successRedirect: '/#/manage',
-	failure: '/#/login'
-}));
+app.post('/api/login', passport.authenticate('local-login', { failure: '/#/login' }), 
+function( req, res ) {
+	res.send(req.user);
+});
 
 app.get('/api/user/authenticated', function(req, res) {
 	res.send(req.user);
 });
+
+app.get('/api/logout', function(req, res) {
+    req.logout();
+	req.session.destroy();
+    res.redirect('/#/admin');
+});
+
 
 app.use(express.static('./core/public/'));
 

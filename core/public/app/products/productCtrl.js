@@ -5,7 +5,5 @@ angular.module('wishingforest').controller('productCtrl', function( $scope, prod
 	
 	$scope.addCart = function (item) {
 	$scope.cart = productSrvc.addCart(item); 
-		// console.log($scope.cart);
 	};
-		// console.log(cartObj.cart.item);
 });

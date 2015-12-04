@@ -9,10 +9,12 @@
 		<div class="itemscontained">
 			<ul ng-repeat="item in items">
 				<li><img ng-src="{{ item.imgpath }}" alt=""></li>
-				<li><strong>Base:</strong> {{ item.basetype }} </li>
-				<li><strong>Wire:</strong> {{ item.wiretype }} </li>
-				<li><strong>Price:</strong> ${{ item.price }}</li>
+				<li><strong>Type:</strong> {{ item.itemtype }} </li>
+				<li><strong>Details:</strong> {{ item.iteminfo }} </li>
+				<li><strong>Available:</strong> {{ item.available }}</li>
+				<li><strong>Price:</strong> {{ item.price | currency : "$" }}</li>
 				<button ng-click="addCart(item)">Add to Cart</button>
+				<button>Request Item</button>
 			</ul>
 		</div>
 	</div>

@@ -12,13 +12,19 @@ angular.module('wishingforest', ['ui.router']).config(function ($stateProvider, 
 			templateUrl: './app/products/productTmpl.html',
 			controller: 'productCtrl'
 		})
+		.state('cart', {
+			url: '/cart',
+			templateUrl: './app/cart/cartTmpl.html',
+			controller: 'cartCtrl'
+		})
 		.state('contact', {
 			url: '/contact',
 			templateUrl: './app/contact/contactTmpl.html'
 		})
 		.state('admin', {
 			url: '/admin',
-			templateUrl: './app/admin/adminTmpl.html'
+			templateUrl: './app/admin/adminTmpl.html',
+			controller: 'loginCtrl'
 		})
 		.state('signup', {
 			url: '/signup',
@@ -27,12 +33,12 @@ angular.module('wishingforest', ['ui.router']).config(function ($stateProvider, 
 		})
 		.state('manage', {
 			url: '/manage',
-			templateUrl: './app/admin/manage/manageTmpl.html'
+			templateUrl: './app/admin/manage/manageTmpl.html',
+			controller: ('manageCtrl')
 		})
-		.state('cart', {
-			url: '/cart',
-			templateUrl: './app/cart/cartTmpl.html',
-			controller: 'cartCtrl'
+		.state('request' , {
+			url: '/request',
+			templateUrl: ('./app/request/requestTmpl.html')
 		});
 		
 	$urlRouterProvider.otherwise('/');

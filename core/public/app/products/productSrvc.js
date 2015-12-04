@@ -32,7 +32,9 @@ angular.module('wishingforest').service('productSrvc', function ($http) {
 		}
 		return cartObj;
 	};
+	
+	this.removeCart = function(items) {
+		localStorage.setItem('cart', JSON.stringify(items));
+	};
 });
 
-
-//  && item ===

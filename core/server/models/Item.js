@@ -2,12 +2,12 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var Item = Schema({
-	basetype: { type: String },
-	wiretype: { type: String },
+	itemtype: { type: String, required: true },
+	iteminfo: { type: String },
 	price: { type: Number },
-	imgpath: { type: String }
-	// leaftype: { type: String },
-	// available: { type: Boolean },
+	imgpath: { type: String },
+	available: { type: String, default: 'Yes' }
 });
+
 
 module.exports = mongoose.model('Item', Item);

@@ -1,14 +1,26 @@
 angular.module('wishingforest').controller('cartCtrl', function ($scope, productSrvc) {
-	$scope.cart = productSrvc.getCart();
-	
+	$scope.getCart = function () {
+		$scope.cart = productSrvc.getCart();
+	};
+	$scope.getCart();
 	$scope.items = $scope.cart.cart;
-	console.log($scope.items[2].item.price);
-	
-	$scope.total = 
-	
-	$scope.totalPrice = function() {
-		$scope.items.forEach(function(cartitem) {
-			
+
+
+	$scope.total = 0;
+
+	$scope.totalPrice = function () {
+		$scope.total = 0;
+		$scope.items.forEach(function (cartitem) {
+			$scope.total += cartitem.item.price;
 		});
+		return $scope.total;
+	};
+	$scope.totalPrice();
+
+
+	$scope.remove = function (item, index) {
+		$scope.items.splice(index, 1);
+		productSrvc.removeCart($scope.cart);
+		$scope.totalPrice();
 	};
 });

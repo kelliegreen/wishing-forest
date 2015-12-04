@@ -3,24 +3,19 @@ html, body {
 	margin: 0;
 	height: 100%;
 	width: 100%;
-	background-color: #c8abdb;
+	background-color: #cdecf7;
 }
 
 .menu {
 	height: 30px;
 	width: 100%;
-	/*background-color: black;*/
+	background-color: #4f2f2d;
 	position: fixed;
 	padding-top: 13px;
 	font-family: Montserrat;
 	list-style: none;
+    margin-bottom: 10px;
 	
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#423b3e+0,f9f9f9+1,c8abdb+100 */
-	background: #423b3e; /* Old browsers */
-	background: -moz-linear-gradient(top,  #423b3e 0%, #f9f9f9 1%, #c8abdb 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top,  #423b3e 0%,#f9f9f9 1%,#c8abdb 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom,  #423b3e 0%,#f9f9f9 1%,#c8abdb 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#423b3e', endColorstr='#c8abdb',GradientType=0 ); /* IE6-9 */
 }
 
 
@@ -284,7 +279,7 @@ button {
     margin-right: 20px;
 }
 a {
-    color: black;
+    color: #4f2f2d;
 }
 
 a:hover {
@@ -300,3 +295,23 @@ a:hover {
     width: 200px;
     height: 200px;
 }
+
+
+/*Manage*/
+.manage {
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    
+}
+
+
+.logout {
+    float: right;
+}
+
+.itemscontained img {
+    width: 200px;
+    height: 200px;
+}
+
