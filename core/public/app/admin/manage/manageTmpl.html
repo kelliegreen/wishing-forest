@@ -1,7 +1,55 @@
 <div class="manage">
 	<div class="logout">
+		<button ng-click="show()">Add New Items</button>
 		<button ng-click="out()">Logout</button>
 	</div>
+
+	<div>
+		<a href="/#/request"><strong>Requests</strong></a>
+	</div>
+
+	<div ng-show="showbutton" class="addnew">
+		<h3><strong>Add a new Item!</strong></h3>
+		<table>
+			<tbody class="inputs">
+				<tr>
+					<td><strong>Type: </strong></td>
+					<td>
+						<input type="text">
+					</td>
+				</tr>
+				<tr>
+					<td><strong>Details: </strong></td>
+					<td>
+						<input type="text">
+					</td>
+				</tr>
+				<tr>
+					<td><strong>Available: </strong></td>
+					<td>
+						<input type="text" placeholder="Yes">
+					</td>
+				</tr>
+				<tr>
+					<td><strong>Price: </strong></td>
+					<td>
+						<input type="text">
+					</td>
+				</tr>
+				<tr>
+					<td><strong>Image URL: </strong></td>
+					<td>
+						<input type="text">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="addbutton">
+			<button>Add New Item</button>
+		</div>
+	</div>
+	<hr>
+
 	<div ng-controller="manageCtrl">
 		<div class="itemscontained">
 			<ul ng-repeat="item in items">
@@ -10,6 +58,8 @@
 				<li><strong>Details:</strong> {{ item.iteminfo }} </li>
 				<li><strong>Available:</strong> {{ item.available }}</li>
 				<li><strong>Price:</strong> {{ item.price | currency : "$" }}</li>
+				<button>Edit Item</button>
+				<button>Delete</button>
 			</ul>
 		</div>
 	</div>

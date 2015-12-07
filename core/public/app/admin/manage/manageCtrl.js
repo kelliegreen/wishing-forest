@@ -7,4 +7,8 @@ angular.module('wishingforest').controller('manageCtrl', function ($scope, manag
 		manageSrvc.logout();
 	};
 	
+	$scope.showbutton = false;
+	$scope.show = function () {
+		return $scope.showbutton = true;
+	};
 });
