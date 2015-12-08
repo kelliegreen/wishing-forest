@@ -3,7 +3,12 @@ var mongoose = require('mongoose'),
 	
 var userSchema = mongoose.Schema({
 		email: String,
-		password: String
+		password: String,
+		requests: [{
+			message: String,
+			item: { type: mongoose.Schema.Types.ObjectId, ref: 'Item'},
+			contactInfo: String
+		}]
 });
 
 userSchema.methods.generateHash = function(password) {

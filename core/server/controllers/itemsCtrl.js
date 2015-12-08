@@ -19,13 +19,22 @@ module.exports = {
 		});
 	},
 	removeItem: function( req, res ) {
-		Item.findByIdAndRemove(req.query.id, function( err, data ) {
+		Item.findByIdAndRemove(req.params.id, function( err, data ) {
 			if (err) {
 				res.status(500).send(err);
 			} else {
 				res.send(data);
 			}
 		});
-	}
+	},
+	updateItem: function (req, res) {
+        Item.findByIdAndUpdate(req.params.id, req.body, function (err, data) {
+            if (err) {
+                res.status(500).send(err);
+            } else {
+                res.send(data);
+            }
+        });
+		}
 		
 };

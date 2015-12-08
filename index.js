@@ -30,7 +30,8 @@ mongoose.connection.once('open', function () {
 
 app.get('/api/item', itemsCtrl.getItems);
 app.post('/api/item', itemsCtrl.addItem);
-app.delete('/api/item/getById', itemsCtrl.removeItem),
+app.delete('/api/item/:id', itemsCtrl.removeItem),
+app.put('/api/item/:id', itemsCtrl.updateItem);
 app.post('/api/signup', passport.authenticate('local-signup', { failure: '/#/login' }), 
 function( req, res ) {
 	res.send(req.user);

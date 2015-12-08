@@ -1,20 +1,67 @@
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
-<div class="containproducts">
-	<div class="cart">
-		<a href="/#/cart"><i class="fa fa-shopping-cart fa-2x"></i></a>
+<div ng-controller="productCtrl">
+	<div class="containproducts">
+		<div class="cart">
+			<a href="/#/cart"><i class="fa fa-shopping-cart fa-2x"></i></a>
+		</div>
+		<select ng-model="sortOptions.itemtype">
+			<option value="" selected>All</option>
+			<option value="Windchimes">Wind chimes</option>
+			<option value="Tree">Trees</option>
+			<option value="SunCatchers">Sun Catchers</option>
+			<option value="Pendant">Pendants</option>
+			<option value="Earrings">Earrings</option>
+		</select>
+<!--ng-show="requestbutton"-->
+	<div class="addnew form-control">
+		<h3><strong>Request Item!</strong></h3>
+		<hr>
+		<table>
+			<tbody class="">
+
+				<tr>
+					<td><strong>Details: </strong></td>
+					<td>
+						<input ng-model="itemToEdit.iteminfo" type="text" class="form-control">
+					</td>
+				</tr>
+				<tr>
+					<td><strong>Available: </strong></td>
+					<td>
+						<input ng-model="itemToEdit.available" type="text" class="form-control">
+					</td>
+				</tr>
+				<tr>
+					<td><strong>Price: </strong></td>
+					<td>
+						<input ng-model="itemToEdit.price" type="text" class="form-control">
+					</td>
+				</tr>
+				<tr>
+					<td><strong>Image URL: </strong></td>
+					<td>
+						<input ng-model="itemToEdit.imgpath" type="text" class="form-control">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="addbutton">
+			<button id="newbtn" class="btn log" ng-click="">Request Item</button>
+		</div>
 	</div>
-	<div ng-controller="productCtrl">
+	<hr>
+
 		<div class="itemscontained">
-			<ul ng-repeat="item in items">
+			<ul ng-repeat="item in items | filter: sortOptions">
 				<li><img ng-src="{{ item.imgpath }}" alt=""></li>
 				<li><strong>Type:</strong> {{ item.itemtype }} </li>
 				<li><strong>Details:</strong> {{ item.iteminfo }} </li>
 				<li><strong>Available:</strong> {{ item.available }}</li>
 				<li><strong>Price:</strong> {{ item.price | currency : "$" }}</li>
-				<button ng-click="addCart(item)">Add to Cart</button>
-				<button>Request Item</button>
+				<button class="btn log" ng-click="addCart(item)">Add to Cart</button>
+				<button class="btn log">Request Item</button>
 			</ul>
 		</div>
 	</div>

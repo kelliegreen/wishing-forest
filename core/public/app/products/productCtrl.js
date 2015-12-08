@@ -7,3 +7,4 @@ angular.module('wishingforest').controller('productCtrl', function( $scope, prod
 	$scope.cart = productSrvc.addCart(item); 
 	};
 });
+
