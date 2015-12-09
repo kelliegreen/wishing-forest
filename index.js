@@ -8,6 +8,7 @@ var express = require('express'),
 	cookieParser = require('cookie-parser'),
 	keys = require('./keys'),
 	itemsCtrl = require('./core/server/controllers/itemsCtrl'),
+	userCtrl = require('./core/server/controllers/userCtrl'),
 	app = express(),
 	port = 9000,
 	mongoUri = 'mongodb://localhost:27017/wishingforest';
@@ -30,8 +31,11 @@ mongoose.connection.once('open', function () {
 
 app.get('/api/item', itemsCtrl.getItems);
 app.post('/api/item', itemsCtrl.addItem);
-app.delete('/api/item/:id', itemsCtrl.removeItem),
+app.delete('/api/item/:id', itemsCtrl.removeItem);
 app.put('/api/item/:id', itemsCtrl.updateItem);
+app.get('/api/request', userCtrl.getRequests);
+app.post('/api/request', userCtrl.addRequest);
+app.delete('/api/request/', userCtrl.removeRequest);
 app.post('/api/signup', passport.authenticate('local-signup', { failure: '/#/login' }), 
 function( req, res ) {
 	res.send(req.user);
@@ -42,9 +46,7 @@ function( req, res ) {
 	res.send(req.user);
 });
 
-app.get('/api/user/authenticated', function(req, res) {
-	res.send(req.user);
-});
+app.get('/api/auth', userCtrl.isAuth, userCtrl.auth);
 
 app.get('/api/logout', function(req, res) {
     req.logout();

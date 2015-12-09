@@ -5,9 +5,11 @@ var userSchema = mongoose.Schema({
 		email: String,
 		password: String,
 		requests: [{
-			message: String,
+			image: String,
 			item: { type: mongoose.Schema.Types.ObjectId, ref: 'Item'},
-			contactInfo: String
+			contactName: String,
+			contactEmail: String,
+			message: String
 		}]
 });
 

@@ -1,1 +1,11 @@
 <h1>Testing Request</h1>
+<div ng-controller="requestCtrl">
+	<div class="reqitems">
+		<ul ng-repeat="request in requests">
+			<li><img ng-src="{{ request.image }}" alt=""></li>
+			<li><strong>Name: </strong>{{request.contactName}}</li>
+			<li><strong>Email: </strong>{{request.contactEmail}}</li>
+			<li><strong>Message: </strong>{{request.message}}</li>
+		</ul>
+	</div>
+</div>

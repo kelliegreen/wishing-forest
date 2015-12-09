@@ -294,6 +294,33 @@ a:hover {
     color: white;
 }
 
+.requestitem {
+    width: 1300px;
+    height: 865px;
+    /*border: 1px inset white;*/
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+
+textarea {
+    resize: none;
+    overflow: auto;
+}
+.requestitem img {
+    width: 200px;
+    height: 200px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.requestitem h3 {
+    margin-left: 55px;
+    margin-bottom: 20px; 
+}
+
 /*Cart*/
 .cartcontained {
     padding-left: 20px;
@@ -363,3 +390,11 @@ background-color: #CDECF7;
     height: 200px;
 }
 
+
+
+/*Requests*/
+
+.reqitems img {
+    width: 200px;
+    height: 200px;
+}

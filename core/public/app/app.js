@@ -33,14 +33,22 @@ angular.module('wishingforest', ['ui.router']).config(function ($stateProvider, 
 		})
 		.state('manage', {
 			url: '/manage',
+			resolve: {
+				user: function(authSrvc) {
+					return authSrvc.getAuth();
+				}
+			},
 			templateUrl: './app/admin/manage/manageTmpl.html',
 			controller: ('manageCtrl')
 		})
 		.state('request' , {
 			url: '/request',
-			templateUrl: ('./app/request/requestTmpl.html')
+			templateUrl: ('./app/request/requestTmpl.html'),
+			controller: 'requestCtrl'
 		});
 		
+		
 	$urlRouterProvider.otherwise('/');
+	
 	
 });

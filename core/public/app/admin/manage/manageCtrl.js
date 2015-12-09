@@ -17,7 +17,7 @@ angular.module('wishingforest').controller('manageCtrl', function ($scope, manag
 	$scope.editshow = function (item) {
 		$scope.itemToEdit = item;
 		$scope.editbutton = true;
-		console.log(item.iteminfo);
+		// console.log(item.iteminfo);
 
 
 	};
