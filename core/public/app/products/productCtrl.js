@@ -16,8 +16,12 @@ angular.module('wishingforest').controller('productCtrl', function( $scope, prod
 	// console.log($scope.itemToRequest);
 	};
 	$scope.addRequest = function(item) {
-		requestSrvc.addRequest(item);
-		
+		if ($scope.itemToRequest.message == null || $scope.itemToRequest.contactName == null || $scope.itemToRequest.contactEmail == null) {
+			alert('You must enter all fields');
+		} else { 
+			requestSrvc.addRequest(item);
+			alert('Your message has been sent');
+		}
 		// console.log(item);
 	};
 });

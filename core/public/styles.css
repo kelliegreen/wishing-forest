@@ -295,13 +295,13 @@ a:hover {
 }
 
 .requestitem {
-    width: 1300px;
-    height: 865px;
+    width: 500px;
+    height: 765px;
     /*border: 1px inset white;*/
     border-radius: 10px;
     margin: 0 auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     padding: 20px;
 }
 
@@ -312,8 +312,18 @@ textarea {
 .requestitem img {
     width: 200px;
     height: 200px;
-    margin-left: 30px;
+    margin-left: 115px;
     margin-bottom: 20px;
+}
+
+.requestbutton {
+     margin-top: 20px;
+    margin-left: 155px;
+}
+
+.close {
+    float: right;
+    opacity: 1;
 }
 
 .requestitem h3 {
