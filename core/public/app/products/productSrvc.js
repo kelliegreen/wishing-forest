@@ -1,4 +1,5 @@
 angular.module('wishingforest').service('productSrvc', function ($http) {
+var itemTotal = 0;
 	this.getItems = function () {
 		return $http.get('/api/item').then(function (response) {
 			return response.data;
@@ -8,7 +9,9 @@ angular.module('wishingforest').service('productSrvc', function ($http) {
 
 	this.getCart = function () {
 		if (localStorage.getItem('cart')) {
-			return JSON.parse(localStorage.getItem('cart'));
+			var cartObject = JSON.parse(localStorage.getItem('cart'));
+			itemTotal = cartObject.cart.length;
+			return cartObject;
 		}
 		return { cart: [] };
 	};
@@ -29,8 +32,13 @@ angular.module('wishingforest').service('productSrvc', function ($http) {
 				cartObj.cart.push({ item: item });
 				localStorage.setItem('cart', JSON.stringify(cartObj));
 			}
+			itemTotal = cartObj.cart.length;
 		}
 		return cartObj;
+	};
+	
+	this.total = function () {
+		return itemTotal;
 	};
 	
 	this.removeCart = function(items) {

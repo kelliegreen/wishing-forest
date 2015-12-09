@@ -43,7 +43,16 @@ li a {
 	color: white;
 	text-decoration: none;
 	padding-left: 20px;
+}
 
+.fa-shopping-cart {
+    float: right;
+}
+
+.cartNum {
+    float: right;
+    margin-right: 20px;
+    padding-left: 5px;
 }
 /*Home Page*/
 
@@ -282,9 +291,10 @@ li {
     padding-left: 20px;
 }
 
-.cart {
-    float: right;
-    margin-right: 20px;
+
+.fa-2x {
+    font-size: 1.5em;
+    
 }
 a {
     color: #4f2f2d;

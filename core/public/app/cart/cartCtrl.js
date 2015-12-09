@@ -5,7 +5,7 @@ angular.module('wishingforest').controller('cartCtrl', function ($scope, product
 	$scope.getCart();
 	$scope.items = $scope.cart.cart;
 
-
+ 
 	$scope.total = 0;
 
 	$scope.totalPrice = function () {
@@ -22,5 +22,10 @@ angular.module('wishingforest').controller('cartCtrl', function ($scope, product
 		$scope.items.splice(index, 1);
 		productSrvc.removeCart($scope.cart);
 		$scope.totalPrice();
+		$scope.$emit('cartItem', $scope.cart.cart.length);
 	};
+	
+	
+	// $scope.numItems = productSrvc.total();
+	
 });

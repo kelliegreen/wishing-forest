@@ -2,7 +2,7 @@ angular.module('wishingforest').controller('manageCtrl', function ($scope, manag
 	productSrvc.getItems().then(function (response) {
 		$scope.items = response;
 	});
-	$scope.$watch('items');
+
 	$scope.out = function () {
 		manageSrvc.logout();
 	};
@@ -23,11 +23,12 @@ angular.module('wishingforest').controller('manageCtrl', function ($scope, manag
 	};
 	$scope.newItem = function () {
 		manageSrvc.addNew($scope.itemToAdd).then(function (response) {
-			$scope.items.push(response.data);
-			$scope.itemToAdd.itemtype = "";
-			$scope.itemToAdd.iteminfo = "";
-			$scope.itemToAdd.price = "";
-			$scope.itemToAdd.imgpath = "";
+			if ($scope.itemToAdd.itemtype == null || $scope.itemToAdd.iteminfo == null || $scope.itemToAdd.available == null || $scope.itemToAdd.price == null || $scope.itemToAdd.imgpath == null) {
+				alert('You must enter all fields');
+			} else {
+				$scope.items.push(response.data);
+			}
+
 
 
 		});
