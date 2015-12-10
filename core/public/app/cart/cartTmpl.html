@@ -1,7 +1,8 @@
 <div ng-controller="cartCtrl">
 	<div class="cartcontained">
-	<div><h2>Your Total {{ total | currency: "$"}}</h2></div>
-	<h1>Your Cart</h1>
+		<div>
+			<h2>Your Total {{ total | currency: "$"}}</h2></div>
+		<h1>Your Cart</h1>
 		<ul ng-repeat="item in items | orderBy: 'itemtype' track by $index">
 			<li><img ng-src="{{ item.item.imgpath }}" alt=""></li>
 			<li><strong>Type:</strong> {{ item.item.itemtype }} </li>
@@ -10,5 +11,8 @@
 			<li><strong>Price:</strong> {{ item.item.price | currency: "$" }}</li>
 			<button class="btn log" ng-click="remove(item.item, $index)">Remove Item</button>
 		</ul>
+	</div>
+	<div class="paypalBtn">
+		<img src="./app/home/img/paypal-button.png" alt="">
 	</div>
 </div>

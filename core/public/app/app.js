@@ -19,7 +19,8 @@ angular.module('wishingforest', ['ui.router']).config(function ($stateProvider, 
 		})
 		.state('contact', {
 			url: '/contact',
-			templateUrl: './app/contact/contactTmpl.html'
+			templateUrl: './app/contact/contactTmpl.html',
+			controller: 'contactCtrl'
 		})
 		.state('admin', {
 			url: '/admin',

@@ -23,19 +23,18 @@ angular.module('wishingforest').controller('manageCtrl', function ($scope, manag
 	};
 	$scope.newItem = function () {
 		manageSrvc.addNew($scope.itemToAdd).then(function (response) {
-			if ($scope.itemToAdd.itemtype == null || $scope.itemToAdd.iteminfo == null || $scope.itemToAdd.available == null || $scope.itemToAdd.price == null || $scope.itemToAdd.imgpath == null) {
-				alert('You must enter all fields');
-			} else {
-				$scope.items.push(response.data);
-			}
-
-
-
+			$scope.items.push(response.data);
 		});
 	};
 
-	$scope.removeItem = function (item) {
-		manageSrvc.remove(item);
+	$scope.removeId = function(item) {
+		console.log(item._id);
+		$scope.findId = item._id;
+	};
+
+	$scope.removeItem = function () {
+		// console.log(item);
+		manageSrvc.remove($scope.findId);
 		productSrvc.getItems().then(function (response) {
 			$scope.items = response;
 		});

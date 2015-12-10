@@ -14,7 +14,8 @@ angular.module('wishingforest').service('manageSrvc', function ($http, $state) {
 	};
 
 	this.remove = function (item) {
-		return $http.delete('/api/item/' +  item._id);
+		// console.log(item);
+		return $http.delete('/api/item/' +  item);
 	};
 	
 	this.update = function(itemToEdit) {

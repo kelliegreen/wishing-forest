@@ -11,59 +11,63 @@
 
 
 	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-		<div class="modal-dialog modal-sm">
+		<div class="modal-dialog modal-md">
 			<div class="modal-content">
 
 				<div class="close">
 					<button id="newbtn" data-toggle="modal" data-target=".bs-example-modal-lg" class="btn log">Close</button>
 				</div>
-
-				<div class="addnew">
-					<h3><strong>Add a new Item!</strong></h3>
-					<hr>
-					<table>
-						<tbody class="inputs">
-							<tr>
-								<td><strong>Type: </strong></td>
-								<td>
-									<select ng-model="itemToAdd.itemtype">
-										<option value="Tree">Tree</option>
-										<option value="Windchimes">Wind Chimes</option>
-										<option value="Suncatchers">Sun Catchers</option>
-										<option value="Pendant">Pendants</option>
-										<option value="Earrings">Earrings</option>
-								</td>
-							</tr>
-							<tr>
-								<td><strong>Details: </strong></td>
-								<td>
-									<input ng-model="itemToAdd.iteminfo" type="text" class="form-control">
-								</td>
-							</tr>
-							<tr>
-								<td><strong>Available: </strong></td>
-								<td>
-									<input ng-model="itemToAdd.available" type="text" class="form-control">
-								</td>
-							</tr>
-							<tr>
-								<td><strong>Price: </strong></td>
-								<td>
-									<input ng-model="itemToAdd.price" type="text" class="form-control">
-								</td>
-							</tr>
-							<tr>
-								<td><strong>Image URL: </strong></td>
-								<td>
-									<input ng-model="itemToAdd.imgpath" type="text" class="form-control">
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					<div class="addbutton">
-						<button id="newbtn" data-toggle="modal" data-target=".bs-example-modal-lg" class="btn log" ng-click="newItem()">Add New Item</button>
+				<form name="addnewform">
+					<div class="addnew">
+						<h3><strong>Add a new Item!</strong></h3>
+						<hr>
+						<table>
+							<tbody class="inputs">
+								<tr>
+									<td><strong>Type: </strong></td>
+									<td>
+										<select ng-model="itemToAdd.itemtype">
+											<option value="Tree">Tree</option>
+											<option value="Windchimes">Wind Chimes</option>
+											<option value="Suncatchers">Sun Catchers</option>
+											<option value="Pendant">Pendants</option>
+											<option value="Earrings">Earrings</option>
+									</td>
+								</tr>
+								<tr>
+									<td><strong>Details: </strong></td>
+									<td>
+										<input ng-model="itemToAdd.iteminfo" required type="text" class="form-control">
+									</td>
+								</tr>
+								<tr>
+									<td><strong>Available: </strong></td>
+									<td>
+										<input ng-model="itemToAdd.available" required type="text" class="form-control">
+									</td>
+								</tr>
+								<tr>
+									<td><strong>Price: </strong></td>
+									<td>
+										<input ng-model="itemToAdd.price" required type="text" class="form-control">
+									</td>
+								</tr>
+								<tr>
+									<td> </td>
+									<td>
+										<form action="demo_form.asp">
+											<input type="file" name="pic" accept="image/*">
+										</form>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="addbutton">
+							<button id="newbtn" data-toggle="modal" data-target=".bs-example-modal-lg" class="btn log" ng-disabled="addnewform.$invalid"
+							ng-click="newItem()">Add New Item</button>
+						</div>
 					</div>
-				</div>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -75,7 +79,7 @@
 			<div class="modal-content">
 
 				<div class="close">
-					<button id="newbtn" data-toggle="modal" data-target=".bs-example-modal-lg" class="btn log">Close</button>
+					<button id="newbtn" data-toggle="modal" data-target=".bs-edit-modal-lg" class="btn log">Close</button>
 				</div>
 
 
@@ -104,7 +108,7 @@
 							<tr>
 								<td><strong>Available: </strong></td>
 								<td>
-									<input ng-model="itemToEdit.available" type="text" class="form-control">
+									<input ng-model="itemToEdit.available" type="text" class="form-control" name="available">
 								</td>
 							</tr>
 							<tr>
@@ -122,7 +126,26 @@
 						</tbody>
 					</table>
 					<div class="addbutton">
-						<button id="newbtn" data-toggle="modal" data-target=".bs-edit-modal-lg"class="btn log" ng-click="updateItem()">Edit Item</button>
+						<button id="newbtn" data-toggle="modal" data-target=".bs-edit-modal-lg" class="btn log" ng-click="updateItem()">Edit Item</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="modal fade bs-remove-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+
+
+				<div id="removeitem" class="addnew">
+					<h3>Are you sure you want to delete this item from the Database?</h3>
+				</div>
+				<div class="addbutton">
+					<button id="newbtn" data-toggle="modal" data-target=".bs-remove-modal-sm" class="removebtn form-control" ng-click="removeItem()">Delete Item</button>
+					<div id="removeitmebtn" class="close">
+						<button id="newbtn" data-toggle="modal" data-target=".bs-remove-modal-sm" class="btn log">Close</button>
 					</div>
 				</div>
 			</div>
@@ -139,8 +162,7 @@
 				<li><strong>Available:</strong> {{ item.available }}</li>
 				<li><strong>Price:</strong> {{ item.price | currency : "$" }}</li>
 				<button class="btn log" data-toggle="modal" data-target=".bs-edit-modal-lg" ng-click="editshow(item)">Edit Item</button>
-				<button class="btn log" ng-click="removeItem(item)">Delete</button>
+				<button class="btn log" data-toggle="modal" data-target=".bs-remove-modal-sm" ng-click="removeId(item)">Delete</button>
 			</ul>
 		</div>
 	</div>
-</div>

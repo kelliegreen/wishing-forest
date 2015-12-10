@@ -1,2 +1,26 @@
-<h1>Testing lsdkfja;lskdfj</h1>
-<p>contact me</p>
+<div class="contactform form-controll">
+	<form name="contactform">
+		<div>Your Name:</div>
+		<div>
+			<input required ng-model="message.name" type="text" class="form-controll">
+		</div>
+		<div>Your Email:</div>
+		<div>
+			<input required ng-model="message.email" type="text" name="email" class="form-controll">
+		</div>
+		<div>Message:</div>
+		<div>
+			<textarea required ng-model="message.message" cols="80" rows="15" type="text" class="form-controll"></textarea>
+		</div>
+		<div>
+			<button ng-disabled="contactform.$invalid" class="btn log" ng-click="sendContact(message)">Send</button>
+		</div>
+	</form>
+</div>
+
+<!--
+<div>
+	<div>
+		<textarea cols="80" rows="15" type="text" class="form-controll">Your Name:  Your Email:</textarea>
+	</div>
+</div>-->
