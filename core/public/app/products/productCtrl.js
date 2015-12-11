@@ -1,8 +1,9 @@
-angular.module('wishingforest').controller('productCtrl', function ($scope, productSrvc, requestSrvc) {
+angular.module('wishingforest').controller('productCtrl', function ($scope, productSrvc, requestSrvc, contactSrvc) {
 	$scope.numItems = 0;
 	$scope.test = 0;
 	productSrvc.getItems().then(function (response) {
 		$scope.items = response;
+		$scope.getItemTypes();
 	});
 
 	$scope.addCart = function (item) {
@@ -15,10 +16,31 @@ angular.module('wishingforest').controller('productCtrl', function ($scope, prod
 		$scope.itemToRequest = {};
 		$scope.itemToRequest.item = item._id;
 		$scope.itemToRequest.image = item.imgpath;
-		// console.log($scope.itemToRequest);
+		
+
 	};
 	$scope.addRequest = function (item) {
 		requestSrvc.addRequest(item);
+		contactSrvc.sendEmail(item).then(function() {
+			swal({
+				title: "Message Sent",
+				text: "Your request has been sent. Thank you.",
+				type: "success",
+				confirmButtonText: "OK"
+			});
+			
+		});
 	};
+	
+	$scope.getItemTypes = function() {
+		$scope.itemTypes = [];
+		$scope.items.forEach(function(item) {
+			if($scope.itemTypes.indexOf(item.itemtype) === -1) {
+				$scope.itemTypes.push(item.itemtype);
+			}
+		});
+	};
+	
+	
 });
 

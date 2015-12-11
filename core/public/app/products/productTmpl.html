@@ -1,5 +1,7 @@
 <div ng-controller="productCtrl">
-
+<div class="productimg">
+		<img src="./app/home/img/bannar.jpg">
+	</div>
 
 
 	​
@@ -28,12 +30,12 @@
 
 						<div>
 							Your Name:
-							<input required ng-model="itemToRequest.contactName" type="text" class="form-control">
+							<input required ng-model="itemToRequest.name" type="text" class="form-control">
 						</div>
 
 						<div>
 							Your Email:
-							<input required ng-model="itemToRequest.contactEmail" type="text" class="form-control" name="email">
+							<input required ng-model="itemToRequest.email" type="text" class="form-control" name="email">
 						</div>
 
 						<div class="requestbutton">
@@ -48,24 +50,37 @@
 
 	<div class="containproducts">
 
-		<select ng-model="sortOptions.itemtype">
+		<!--<select ng-model="sortOptions.itemtype">
 			<option value="" selected>All</option>
 			<option value="Windchimes">Wind chimes</option>
 			<option value="Tree">Trees</option>
 			<option value="SunCatchers">Sun Catchers</option>
 			<option value="Pendant">Pendants</option>
 			<option value="Earrings">Earrings</option>
+		</select>-->
+		
+		<!--<select ng-model="sortOptions.itemtype">
+			<option value="" selected>All</option>
+			<option ng-repeat="item in items" value="{{item.itemtype}}">{{item.itemtype}}</option>
+			
+		</select>-->
+		
+		<select ng-options="type as type for type in itemTypes" ng-model="sortOptions.itemtype">
+			<option value="" selected>All</option>
 		</select>
+		
 		<hr>
+		
 		<div class="itemscontained">
 			<ul ng-repeat="item in items | filter: sortOptions">
-				<li><img ng-src="{{ item.imgpath }}" alt=""></li>
+				<div class="eachitem"><li><img ng-src="{{ item.imgpath }}" alt=""></li>
 				<li><strong>Type:</strong> {{ item.itemtype }} </li>
 				<li><strong>Details:</strong> {{ item.iteminfo }} </li>
 				<li><strong>Available:</strong> {{ item.available }}</li>
 				<li><strong>Price:</strong> {{ item.price | currency : "$" }}</li>
 				<button class="btn log" ng-click="addCart(item)">Add to Cart</button>
 				<button class="btn log" data-toggle="modal" data-target=".bs-example-modal-lg" ng-click="requestShow(item)">Customize Item</button>
+				</div>
 			</ul>
 		</div>
 	</div>

@@ -1,4 +1,8 @@
-<div class="manage" ng-controller="manageCtrl">
+<div class="manage">
+	
+<div class="productimg">
+		<img src="./app/home/img/forest.jpg">
+	</div>
 
 	<div class="logout">
 		<button class="btn log" data-toggle="modal" data-target=".bs-example-modal-lg">Add New Items</button>
@@ -43,7 +47,7 @@
 								<tr>
 									<td><strong>Available: </strong></td>
 									<td>
-										<input ng-model="itemToAdd.available" required type="text" class="form-control">
+										<input ng-model="itemToAdd.available" required type="text" name="available" class="form-control">
 									</td>
 								</tr>
 								<tr>
@@ -53,7 +57,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td> </td>
+									<td> <strong>Image:</strong></td>
 									<td>
 										<form action="demo_form.asp">
 											<input type="file" name="pic" accept="image/*">
@@ -156,13 +160,15 @@
 	<div>
 		<div class="itemscontained">
 			<ul ng-repeat="item in items">
-				<li><img ng-src="{{ item.imgpath }}" alt=""></li>
-				<li><strong>Type:</strong> {{ item.itemtype }} </li>
-				<li><strong>Details:</strong> {{ item.iteminfo }} </li>
-				<li><strong>Available:</strong> {{ item.available }}</li>
-				<li><strong>Price:</strong> {{ item.price | currency : "$" }}</li>
-				<button class="btn log" data-toggle="modal" data-target=".bs-edit-modal-lg" ng-click="editshow(item)">Edit Item</button>
-				<button class="btn log" data-toggle="modal" data-target=".bs-remove-modal-sm" ng-click="removeId(item)">Delete</button>
+				<div class="eachitem">
+					<li><img ng-src="{{ item.imgpath }}" alt=""></li>
+					<li><strong>Type:</strong> {{ item.itemtype }} </li>
+					<li><strong>Details:</strong> {{ item.iteminfo }} </li>
+					<li><strong>Available:</strong> {{ item.available }}</li>
+					<li><strong>Price:</strong> {{ item.price | currency : "$" }}</li>
+					<button class="btn log" data-toggle="modal" data-target=".bs-edit-modal-lg" ng-click="editshow(item)">Edit Item</button>
+					<button class="btn log" data-toggle="modal" data-target=".bs-remove-modal-sm" ng-click="removeId(item)">Delete</button>
+				</div>
 			</ul>
 		</div>
 	</div>

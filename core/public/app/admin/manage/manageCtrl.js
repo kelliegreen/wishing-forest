@@ -24,6 +24,7 @@ angular.module('wishingforest').controller('manageCtrl', function ($scope, manag
 	$scope.newItem = function () {
 		manageSrvc.addNew($scope.itemToAdd).then(function (response) {
 			$scope.items.push(response.data);
+		$scope.itemToAdd = {};		
 		});
 	};
 

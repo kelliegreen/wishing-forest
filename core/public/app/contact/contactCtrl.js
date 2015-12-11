@@ -1,8 +1,15 @@
-angular.module('wishingforest').controller('contactCtrl', function($scope, contactSrvc) {
-	$scope.sendContact =  function(message) {
+angular.module('wishingforest').controller('contactCtrl', function ($scope, contactSrvc) {
+
+
+	$scope.sendContact = function (message) {
 		contactSrvc.sendEmail(message).then(function () {
 			$scope.message = {};
-			alert('Your message has been sent.');
+			swal({
+				title: "Message Sent",
+				text: "Your message has been sent. Thank you.",
+				type: "success",
+				confirmButtonText: "OK"
+			});
 		});
 	};
 });
