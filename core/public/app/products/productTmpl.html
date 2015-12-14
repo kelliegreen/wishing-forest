@@ -10,7 +10,7 @@
 			<div class="modal-content">
 
 				<div class="close">
-					<button id="newbtn" data-toggle="modal" data-target=".bs-example-modal-lg" class="btn log">Close</button>
+					<button id="newbtn" data-toggle="modal" data-target=".bs-example-modal-lg" class="btn"><i class="fa fa-times fa-lg"></i></button>
 				</div>
 
 				<form name="requestform">
@@ -19,9 +19,9 @@
 						<hr>
 						<img ng-src="{{ itemToRequest.image }}" alt="">
 
-						<div>
+						<div class="requestMessage">
 							Your Customizations:
-							<textarea cols="40" rows="10" ng-model="itemToRequest.message" type="text" class="form-control" required></textarea>
+							<textarea cols="40" rows="13" ng-model="itemToRequest.message" type="text" class="form-control" required></textarea>
 						</div>
 
 						<div>
@@ -66,13 +66,13 @@
 			
 		</select>-->
 
-		<select ng-options="type as type for type in itemTypes" ng-model="sortOptions.itemtype">
+		<select class="filter" ng-options="type as type for type in itemTypes" ng-model="sortOptions.itemtype">
 			<option value="" selected>All</option>
 		</select>
 <!--<script>$(function() {
 	$("#filterTypeAll").click(function() {});
 });</script>-->
-		<hr>
+	
 
 		<div class="itemscontained">
 			<ul ng-repeat="item in items | filter: sortOptions">
@@ -81,7 +81,7 @@
 					<li><strong>Type:</strong> {{ item.itemtype }} </li>
 					<li><strong>Details:</strong> {{ item.iteminfo }} </li>
 					<li><strong>Available:</strong> {{ item.available }}</li>
-					<li><strong>Price:</strong> {{ item.price | currency : "$" }}</li>
+					<li class="price"><strong>Price:</strong> {{ item.price | currency : "$" }}</li>
 					<button class="btn log" ng-click="addCart(item)">Add to Cart</button>
 					<button class="btn log" data-toggle="modal" data-target=".bs-example-modal-lg" ng-click="requestShow(item)">Customize Item</button>
 				</div>
@@ -91,6 +91,6 @@
 </div>
 
 
-<footer class="footer">Vist Wishing Forest on<a class="laurafb" target="new" href="https://www.facebook.com/WishingForest/?pnref=story"><i class="fa fa-facebook"></i></a> Images courtesy of <a target="new" href="http://www.imagesosweetphotography.com/">ImageSoSweePhotography</a><a class="photographyfb"target="new" href="https://www.facebook.com/ImageSoSweet-Photography-113527518714725/"><i class="fa fa-facebook"></i></a></footer>
+<footer class="footer">Vist Wishing Forest on<a class="laurafb" target="new" href="https://www.facebook.com/WishingForest/?pnref=story"><i class="fa fa-facebook-square"></i></a> Images courtesy of <a target="new" href="http://www.imagesosweetphotography.com/">ImageSoSweePhotography</a><a class="photographyfb"target="new" href="https://www.facebook.com/ImageSoSweet-Photography-113527518714725/"><i class="fa fa-facebook-square"></i></a></footer>
 
 <!--ng-show="requestbutton"-->

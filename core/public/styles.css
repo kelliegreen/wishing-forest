@@ -54,6 +54,7 @@ button {
 }*/
 .photographyfb {
     margin-left: 10px;
+
 }
 
 button {
@@ -272,6 +273,11 @@ p, h1 {
 
 /*Products*/
 
+.filter {
+    margin-left: 60px;
+    margin-bottom: 20px;
+}
+
 .productimg img {
     width: 100%;
     margin-top: 45px;
@@ -282,6 +288,9 @@ p, h1 {
 
 li {
     list-style: none;
+}
+.price{
+    margin-bottom: 10px;
 }
 
 .top {
@@ -304,7 +313,10 @@ li {
 
 .eachitem {
     float: left;
-    padding: 5px 5px;
+    padding: 20px 10px;
+    /*margin-bottom:30px;*/
+    /*padding: 0 auto 30 auto;*/
+
 
     
 }
@@ -323,40 +335,59 @@ a:hover {
 }
 
 .requestitem {
-    width: 500px;
-    height: 765px;
+    width: 550px;
+    height: 600px;
     /*border: 1px inset white;*/
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     margin: 0 auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 20px;
+    /*margin-top: 10px;*/
+    /*margin-bottom: 10px;*/
+    /*padding: 20px;*/
 }
+
+/*.requestitem h3 {
+    margin-left: 100px;
+    width: 300px;
+}*/
 
 textarea {
     resize: none;
     overflow: auto;
+    /*margin-right: 5px;*/
 }
+
 .requestitem img {
     width: 200px;
-    height: 200px;
-    margin-left: 115px;
+    height: 300px;
+    margin-left: 25px;
     margin-bottom: 20px;
+}
+.requestMessage {
+    float: left;
 }
 
 .requestbutton {
+    /*margin: 20 auto;*/
      margin-top: 20px;
-    margin-left: 155px;
+    margin-left: 210px;
 }
 
 .close {
     float: right;
     opacity: 1;
+    margin-top: 12px;
+    margin-right: 12px;
+
+}
+
+.close #newbtn {
+    background-color: white;
 }
 
 .requestitem h3 {
-    margin-left: 55px;
+    margin-left: 110px;
     margin-bottom: 20px; 
+    width: 300px;
 }
 
 /*Cart*/
@@ -400,6 +431,8 @@ textarea {
 
 .log {
     border: 1px solid #b2b0b0;
+        background-color: #efefef;
+    /*background-color: #CDECF7;*/
 }
 
 
@@ -454,6 +487,8 @@ background-color: #CDECF7;
     vertical-align: middle;
     position: absolute;
     bottom: 0px;
+    border: 1px double #b2b0b0;
+    /*border-style: double*/
 }
 
 #removeitem h3{
