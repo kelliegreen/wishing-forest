@@ -20,6 +20,7 @@ var itemTotal = 0;
 
 
 	this.addCart = function (item) {
+		// console.log(item);
 		if (item) { 
 			var cartObj = this.getCart();
 			var itemFound = false;
@@ -33,6 +34,7 @@ var itemTotal = 0;
 				localStorage.setItem('cart', JSON.stringify(cartObj));
 			}
 			itemTotal = cartObj.cart.length;
+			console.log(cartObj);
 		}
 		return cartObj;
 	};

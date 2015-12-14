@@ -7,6 +7,7 @@
 	<div class="logout">
 		<button class="btn log" data-toggle="modal" data-target=".bs-example-modal-lg">Add New Items</button>
 		<button ng-click="out()" class="btn log">Logout</button>
+		<button class="btn log" ng-click="signup()">Signup</button>
 	</div>
 
 	<div>
@@ -30,12 +31,7 @@
 								<tr>
 									<td><strong>Type: </strong></td>
 									<td>
-										<select ng-model="itemToAdd.itemtype">
-											<option value="Tree">Tree</option>
-											<option value="Windchimes">Wind Chimes</option>
-											<option value="Suncatchers">Sun Catchers</option>
-											<option value="Pendant">Pendants</option>
-											<option value="Earrings">Earrings</option>
+										<input ng-model="itemToAdd.itemtype" required type="text" name="types" autocomplete="on" class="form-control">
 									</td>
 								</tr>
 								<tr>
@@ -161,7 +157,7 @@
 		<div class="itemscontained">
 			<ul ng-repeat="item in items">
 				<div class="eachitem">
-					<li><img ng-src="{{ item.imgpath }}" alt=""></li>
+					<li class="itemimgli"><img ng-src="{{ item.imgpath }}" alt=""></li>
 					<li><strong>Type:</strong> {{ item.itemtype }} </li>
 					<li><strong>Details:</strong> {{ item.iteminfo }} </li>
 					<li><strong>Available:</strong> {{ item.available }}</li>

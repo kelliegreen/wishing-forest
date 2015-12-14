@@ -4,7 +4,7 @@ module.exports = {
 
 	getItems: function (req, res) {
 		Item.find().then(function (response) {
-			 res.send(response);
+			res.send(response);
 		});
 	},
 
@@ -18,8 +18,8 @@ module.exports = {
 			}
 		});
 	},
-	removeItem: function( req, res ) {
-		Item.findByIdAndRemove(req.params.id, function( err, data ) {
+	removeItem: function (req, res) {
+		Item.findByIdAndRemove(req.params.id, function (err, data) {
 			if (err) {
 				res.status(500).send(err);
 			} else {
@@ -35,6 +35,15 @@ module.exports = {
                 res.send(data);
             }
         });
-		}
-		
+	},
+
+	getById: function (req, res) {
+		Item.findById(req.params.id, req.body, function (err, data) {
+			if (err) {
+				res.status(500).send(err);
+			} else {
+				res.send(data);
+			}
+		});
+	}
 };

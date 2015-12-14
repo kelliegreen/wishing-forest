@@ -29,6 +29,11 @@ angular.module('wishingforest', ['ui.router']).config(function ($stateProvider, 
 		})
 		.state('signup', {
 			url: '/signup',
+			resolve: {
+				user: function(authSrvc) {
+					return authSrvc.getAuth();
+				}
+			},
 			templateUrl: './app/admin/signup/signupTmpl.html',
 			controller: 'signupCtrl'
 		})

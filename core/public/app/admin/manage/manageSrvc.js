@@ -9,6 +9,10 @@ angular.module('wishingforest').service('manageSrvc', function ($http, $state) {
 			});
 	};
 
+	this.signup = function () {
+		$state.go('signup');
+	};
+
 	this.addNew = function (itemToAdd) {
 		return $http.post('/api/item', itemToAdd);
 	};
@@ -22,5 +26,6 @@ angular.module('wishingforest').service('manageSrvc', function ($http, $state) {
 		// console.log(id);
 		return $http.put('/api/item/' + itemToEdit._id, itemToEdit);
 	};
+	
 
 });

@@ -3,6 +3,7 @@ angular.module('wishingforest').controller('productCtrl', function ($scope, prod
 	$scope.test = 0;
 	productSrvc.getItems().then(function (response) {
 		$scope.items = response;
+		// console.log($scope.items[2].price);
 		$scope.getItemTypes();
 	});
 
@@ -23,8 +24,8 @@ angular.module('wishingforest').controller('productCtrl', function ($scope, prod
 		requestSrvc.addRequest(item);
 		contactSrvc.sendEmail(item).then(function() {
 			swal({
-				title: "Message Sent",
-				text: "Your request has been sent. Thank you.",
+				title: "Request Sent",
+				text: "Your custom request has been sent. Thank you.",
 				type: "success",
 				confirmButtonText: "OK"
 			});
@@ -39,6 +40,7 @@ angular.module('wishingforest').controller('productCtrl', function ($scope, prod
 				$scope.itemTypes.push(item.itemtype);
 			}
 		});
+		console.log($scope.itemTypes);
 	};
 	
 	

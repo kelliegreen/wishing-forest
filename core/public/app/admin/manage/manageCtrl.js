@@ -6,6 +6,10 @@ angular.module('wishingforest').controller('manageCtrl', function ($scope, manag
 	$scope.out = function () {
 		manageSrvc.logout();
 	};
+	
+	$scope.signup = function () {
+		manageSrvc.signup();
+	};
 
 	$scope.showbutton = false;
 	$scope.show = function () {
@@ -28,6 +32,7 @@ angular.module('wishingforest').controller('manageCtrl', function ($scope, manag
 		});
 	};
 
+
 	$scope.removeId = function(item) {
 		console.log(item._id);
 		$scope.findId = item._id;
@@ -49,4 +54,6 @@ angular.module('wishingforest').controller('manageCtrl', function ($scope, manag
 		});
 
 	};
+	
+	
 });

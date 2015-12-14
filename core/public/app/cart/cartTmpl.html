@@ -3,12 +3,13 @@
 	<div class="productimg">
 		<img src="./app/home/img/products.jpeg">
 	</div>
-	<div class="cartcontained">
+	<div class="blackLine"></div>
+	<div class="itemscontained cartcontained">
 		<div>
 			<h2>Your Total {{ total | currency: "$"}}</h2></div>
 		<h1>Your Cart</h1>
 		<ul ng-repeat="item in items | orderBy: 'itemtype' track by $index">
-			<div class="eachitem"><li><img ng-src="{{ item.item.imgpath }}" alt=""></li>
+			<div class="eachitem"><li class="itemimgli"><img ng-src="{{ item.item.imgpath }}" alt=""></li>
 			<li><strong>Type:</strong> {{ item.item.itemtype }} </li>
 			<li><strong>Details:</strong> {{ item.item.iteminfo }} </li>
 			<li><strong>Available:</strong> {{ item.item.available }} </li>
@@ -21,3 +22,6 @@
 		<img src="./app/home/img/paypal-button.png" alt="">
 	</div>
 </div>
+
+
+<footer class="footer">Vist Wishing Forest on<a class="laurafb" target="new" href="https://www.facebook.com/WishingForest/?pnref=story"><i class="fa fa-facebook"></i></a> Images courtesy of <a target="new" href="http://www.imagesosweetphotography.com/">ImageSoSweePhotography</a><a class="photographyfb"target="new" href="https://www.facebook.com/ImageSoSweet-Photography-113527518714725/"><i class="fa fa-facebook"></i></a></footer>

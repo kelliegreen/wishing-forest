@@ -1,5 +1,5 @@
 <div ng-controller="productCtrl">
-<div class="productimg">
+	<div class="productimg">
 		<img src="./app/home/img/bannar.jpg">
 	</div>
 
@@ -39,7 +39,8 @@
 						</div>
 
 						<div class="requestbutton">
-							<button id="newbtn" data-toggle="modal" data-target=".bs-example-modal-lg" class="btn log" ng-disabled="requestform.$invalid" ng-click="addRequest(itemToRequest)">Request Item</button>
+							<button id="newbtn" data-toggle="modal" data-target=".bs-example-modal-lg" class="btn log" ng-disabled="requestform.$invalid"
+							ng-click="addRequest(itemToRequest)">Request Item</button>
 						</div>
 					</div>
 				</form>
@@ -58,33 +59,38 @@
 			<option value="Pendant">Pendants</option>
 			<option value="Earrings">Earrings</option>
 		</select>-->
-		
+
 		<!--<select ng-model="sortOptions.itemtype">
 			<option value="" selected>All</option>
 			<option ng-repeat="item in items" value="{{item.itemtype}}">{{item.itemtype}}</option>
 			
 		</select>-->
-		
+
 		<select ng-options="type as type for type in itemTypes" ng-model="sortOptions.itemtype">
 			<option value="" selected>All</option>
 		</select>
-		
+<!--<script>$(function() {
+	$("#filterTypeAll").click(function() {});
+});</script>-->
 		<hr>
-		
+
 		<div class="itemscontained">
 			<ul ng-repeat="item in items | filter: sortOptions">
-				<div class="eachitem"><li><img ng-src="{{ item.imgpath }}" alt=""></li>
-				<li><strong>Type:</strong> {{ item.itemtype }} </li>
-				<li><strong>Details:</strong> {{ item.iteminfo }} </li>
-				<li><strong>Available:</strong> {{ item.available }}</li>
-				<li><strong>Price:</strong> {{ item.price | currency : "$" }}</li>
-				<button class="btn log" ng-click="addCart(item)">Add to Cart</button>
-				<button class="btn log" data-toggle="modal" data-target=".bs-example-modal-lg" ng-click="requestShow(item)">Customize Item</button>
+				<div class="eachitem">
+					<li class="itemimgli"><img ng-src="{{ item.imgpath }}" alt=""></li>
+					<li><strong>Type:</strong> {{ item.itemtype }} </li>
+					<li><strong>Details:</strong> {{ item.iteminfo }} </li>
+					<li><strong>Available:</strong> {{ item.available }}</li>
+					<li><strong>Price:</strong> {{ item.price | currency : "$" }}</li>
+					<button class="btn log" ng-click="addCart(item)">Add to Cart</button>
+					<button class="btn log" data-toggle="modal" data-target=".bs-example-modal-lg" ng-click="requestShow(item)">Customize Item</button>
 				</div>
 			</ul>
 		</div>
 	</div>
 </div>
 
+
+<footer class="footer">Vist Wishing Forest on<a class="laurafb" target="new" href="https://www.facebook.com/WishingForest/?pnref=story"><i class="fa fa-facebook"></i></a> Images courtesy of <a target="new" href="http://www.imagesosweetphotography.com/">ImageSoSweePhotography</a><a class="photographyfb"target="new" href="https://www.facebook.com/ImageSoSweet-Photography-113527518714725/"><i class="fa fa-facebook"></i></a></footer>
 
 <!--ng-show="requestbutton"-->

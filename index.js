@@ -32,6 +32,7 @@ mongoose.connection.once('open', function () {
 
 
 app.get('/api/item', itemsCtrl.getItems);
+app.get('/api/item/:id', itemsCtrl.getById);
 app.post('/api/item', itemsCtrl.addItem);
 app.delete('/api/item/:id', itemsCtrl.removeItem);
 app.put('/api/item/:id', itemsCtrl.updateItem);
