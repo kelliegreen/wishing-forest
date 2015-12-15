@@ -7,8 +7,8 @@ var userSchema = mongoose.Schema({
 		requests: [{
 			image: String,
 			item: { type: mongoose.Schema.Types.ObjectId, ref: 'Item'},
-			contactName: String,
-			contactEmail: String,
+			name: String,
+			email: String,
 			message: String
 		}]
 });

@@ -48,6 +48,10 @@
 		</div>
 	</div>
 
+	<div>
+
+	</div>
+
 
 	<div class="containproducts">
 
@@ -66,22 +70,23 @@
 			
 		</select>-->
 
+		<span class="filterby">Filter by: </span>
 		<select class="filter" ng-options="type as type for type in itemTypes" ng-model="sortOptions.itemtype">
 			<option value="" selected>All</option>
 		</select>
-<!--<script>$(function() {
+		<!--<script>$(function() {
 	$("#filterTypeAll").click(function() {});
 });</script>-->
-	
+
 
 		<div class="itemscontained">
 			<ul ng-repeat="item in items | filter: sortOptions">
 				<div class="eachitem">
 					<li class="itemimgli"><img ng-src="{{ item.imgpath }}" alt=""></li>
-					<li><strong>Type:</strong> {{ item.itemtype }} </li>
-					<li><strong>Details:</strong> {{ item.iteminfo }} </li>
-					<li><strong>Available:</strong> {{ item.available }}</li>
-					<li class="price"><strong>Price:</strong> {{ item.price | currency : "$" }}</li>
+					<li class="center"> <strong>{{ item.itemtype }} </strong></li>
+					<li class="center crop wrapper"> {{ item.iteminfo }}<span class="tooltip">{{ item.iteminfo }}</span>
+					</li>
+					<li class="price center"> {{ item.price | currency : "$" }}</li>
 					<button class="btn log" ng-click="addCart(item)">Add to Cart</button>
 					<button class="btn log" data-toggle="modal" data-target=".bs-example-modal-lg" ng-click="requestShow(item)">Customize Item</button>
 				</div>
@@ -91,6 +96,7 @@
 </div>
 
 
-<footer class="footer">Vist Wishing Forest on<a class="laurafb" target="new" href="https://www.facebook.com/WishingForest/?pnref=story"><i class="fa fa-facebook-square"></i></a> Images courtesy of <a target="new" href="http://www.imagesosweetphotography.com/">ImageSoSweePhotography</a><a class="photographyfb"target="new" href="https://www.facebook.com/ImageSoSweet-Photography-113527518714725/"><i class="fa fa-facebook-square"></i></a></footer>
+<footer class="footer">Vist Wishing Forest on<a class="laurafb" target="new" href="https://www.facebook.com/WishingForest/?pnref=story"><i class="fa fa-facebook-square"></i></a>	Images courtesy of <a target="new" href="http://www.imagesosweetphotography.com/">ImageSoSweePhotography</a><a class="photographyfb"
+	target="new" href="https://www.facebook.com/ImageSoSweet-Photography-113527518714725/"><i class="fa fa-facebook-square"></i></a></footer>
 
 <!--ng-show="requestbutton"-->

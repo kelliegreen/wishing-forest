@@ -65,7 +65,7 @@ var transporter = nodemailer.createTransport({
     }
 }, {
 		// default values for sendMail method
-		from: 'sender@address',
+		from: keys.fromEmail,
 		headers: {
 			'My-Awesome-Header': '123'
 		}
@@ -76,7 +76,7 @@ app.post('/api/contact', function (req, res) {
 	transporter.sendMail({
 		to: keys.toEmail,
 		subject: 'New Mail From ' + req.body.name + ', ' + req.body.email,
-		text: req.body.message
+		text: req.body.email + " " + req.body.message + " " + req.body.image
 	});
 	res.send();
 });

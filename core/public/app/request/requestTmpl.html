@@ -1,12 +1,17 @@
-<h1>Testing Request</h1>
-<div ng-controller="requestCtrl">
-	<div class="reqitems">
-		<ul ng-repeat="request in requests">
-			<li><img ng-src="{{ request.image }}" alt=""></li>
-			<li><strong>Name: </strong>{{request.contactName}}</li>
-			<li><strong>Email: </strong>{{request.contactEmail}}</li>
-			<li><strong>Message: </strong>{{request.message}}</li>
-			<button class="requestdelete form-control">Delete</button>
-		</ul>
+<div ng-controller="requestCtrl" class="requestproducts">
+	<div class="requestview">
+		<h1>Testing Request</h1>
+		<div class="itemscontained foot">
+			<ul ng-repeat="request in requests">
+				<div class="eachitem">
+					<li class="itemimgli"><img ng-src="{{ request.image }}" alt=""></li>
+					<li><strong>Name: </strong>{{request.name}}</li>
+					<li><strong>Email: </strong>{{request.email}}</li>
+					<li><strong>ID:</strong>{{request.item}}</li>
+					<li><strong>Message: </strong>{{request.message}}</li>
+				</div>
+			</ul>
+		</div>
 	</div>
+	<footer class="footer"></footer>
 </div>

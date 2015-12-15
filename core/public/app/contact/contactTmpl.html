@@ -3,18 +3,18 @@
 		<form name="contactform">
 			<div>Your Name:</div>
 			<div>
-				<input required ng-model="message.name" type="text" class="form-control">
+				<input required ng-model="message.name" type="text" class="form-control contactinput">
 			</div>
 			<div>Your Email:</div>
 			<div>
-				<input required ng-model="message.email" type="text" name="email" class="form-control">
+				<input required ng-model="message.email" type="text" name="email" class="form-control contactinput">
 			</div>
 			<div>Message:</div>
 			<div>
-				<textarea required ng-model="message.message" cols="80" rows="15" type="text" class="form-control"></textarea>
+				<textarea required ng-model="message.message" cols="80" rows="15" type="text" class="form-control contactinput"></textarea>
 			</div>
 			<div>
-				<button ng-disabled="contactform.$invalid" class="btn log" ng-click="sendContact(message)">Send</button>
+				<button ng-disabled="contactform.$invalid" class="btn log contactbutton" ng-click="sendContact(message)">Send Message</button>
 			</div>
 		</form>
 	</div>

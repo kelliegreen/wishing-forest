@@ -1,13 +1,15 @@
 <div class="manage">
-	
-<div class="productimg">
+
+	<div class="productimg">
 		<img src="./app/home/img/forest.jpg">
 	</div>
+
+	<div class="blackLine"></div>
 
 	<div class="logout">
 		<button class="btn log" data-toggle="modal" data-target=".bs-example-modal-lg">Add New Items</button>
 		<button ng-click="out()" class="btn log">Logout</button>
-		<button class="btn log" ng-click="signup()">Signup</button>
+		<button class="btn log" id="last" ng-click="signup()">Signup</button>
 	</div>
 
 	<div>
@@ -16,15 +18,15 @@
 
 
 	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-		<div class="modal-dialog modal-md">
+		<div class="modal-dialog modal-sm">
 			<div class="modal-content">
 
 				<div class="close">
-					<button id="newbtn" data-toggle="modal" data-target=".bs-example-modal-lg" class="btn log">Close</button>
+					<button id="newbtn" data-toggle="modal" data-target=".bs-example-modal-lg" class="btn"><i class="fa fa-times fa-lg"></i></button>
 				</div>
 				<form name="addnewform">
 					<div class="addnew">
-						<h3><strong>Add a new Item!</strong></h3>
+						<span><strong>Add a new Item!</strong></span>
 						<hr>
 						<table>
 							<tbody class="inputs">
@@ -77,24 +79,19 @@
 			<div class="modal-content">
 
 				<div class="close">
-					<button id="newbtn" data-toggle="modal" data-target=".bs-edit-modal-lg" class="btn log">Close</button>
+					<button id="newbtn" data-toggle="modal" data-target=".bs-edit-modal-lg" class="btn"><i class="fa fa-times fa-lg"></i></button>
 				</div>
 
 
 				<div class="addnew">
-					<h3><strong>Edit Item!</strong></h3>
+					<span id="edititem"><strong>Edit Item!</strong></span>
 					<hr>
 					<table>
 						<tbody class="edit">
 							<tr>
 								<td><strong>Type: </strong></td>
 								<td>
-									<select ng-model="itemToEdit.itemtype">
-										<option value="Tree">Tree</option>
-										<option value="Windchimes">Wind Chimes</option>
-										<option value="Suncatchers">Sun Catchers</option>
-										<option value="Pendant">Pendants</option>
-										<option value="Earrings">Earrings</option>
+									<input ng-model="itemToEdit.itemtype" required type="text" name="types" autocomplete="on" class="form-control">
 								</td>
 							</tr>
 							<tr>
@@ -123,7 +120,7 @@
 							</tr>
 						</tbody>
 					</table>
-					<div class="addbutton">
+					<div class="addbutton" id="edit">
 						<button id="newbtn" data-toggle="modal" data-target=".bs-edit-modal-lg" class="btn log" ng-click="updateItem()">Edit Item</button>
 					</div>
 				</div>
@@ -149,20 +146,22 @@
 			</div>
 		</div>
 	</div>
-	<hr>
+
 
 	<div>
 		<div class="itemscontained">
 			<ul ng-repeat="item in items">
 				<div class="eachitem">
 					<li class="itemimgli"><img ng-src="{{ item.imgpath }}" alt=""></li>
-					<li><strong>Type:</strong> {{ item.itemtype }} </li>
-					<li><strong>Details:</strong> {{ item.iteminfo }} </li>
-					<li><strong>Available:</strong> {{ item.available }}</li>
-					<li><strong>Price:</strong> {{ item.price | currency : "$" }}</li>
-					<button class="btn log" data-toggle="modal" data-target=".bs-edit-modal-lg" ng-click="editshow(item)">Edit Item</button>
+					<li class="center"> {{ item.itemtype }} </li>
+					<li class="center crop wrapper">{{ item.iteminfo }} <span class="tooltip">{{ item.iteminfo }}</span></li>
+					<li class="center"><strong>Available:</strong> {{ item.available }}</li>
+					<li class="center"> {{ item.price | currency : "$" }}</li>
+					<button class="btn log movebtn" data-toggle="modal" data-target=".bs-edit-modal-lg" ng-click="editshow(item)">Edit Item</button>
 					<button class="btn log" data-toggle="modal" data-target=".bs-remove-modal-sm" ng-click="removeId(item)">Delete</button>
 				</div>
 			</ul>
 		</div>
 	</div>
+
+	<footer class="footer"></footer>
