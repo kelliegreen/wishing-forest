@@ -34,7 +34,6 @@
 				<li class="itemimgli"><img ng-src="{{ item.item.imgpath }}" alt=""></li>
 				<li class="center">{{ item.item.itemtype }} </li>
 				<li class="center crop wrapper">{{ item.item.iteminfo }} <span class="tooltip">{{ item.item.iteminfo }}</span></li>
-				<li class="center">{{ item.item.available }} </li>
 				<li class="price center">{{ item.item.price | currency: "$" }}</li>
 				<button class="btn log cartremovebtn" ng-click="remove(item.item, $index)">Remove Item</button>
 		</ul>

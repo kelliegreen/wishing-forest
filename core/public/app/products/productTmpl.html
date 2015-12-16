@@ -87,7 +87,8 @@
 					<li class="center crop wrapper"> {{ item.iteminfo }}<span class="tooltip">{{ item.iteminfo }}</span>
 					</li>
 					<li class="price center"> {{ item.price | currency : "$" }}</li>
-					<button class="btn log" ng-click="addCart(item)">Add to Cart</button>
+					<!--<button ng-disabled="item.available === 'No'" ng-show="item.available === 'No'" class="btn log">Unavailable</button>-->
+					<button ng-disabled="item.available === 'No'" class="btn log" ng-click="addCart(item)"><span ng-show="item.available === 'No'">Out of Stock</span> <span ng-show="item.available !== 'No'">Add to Cart</span</button>
 					<button class="btn log" data-toggle="modal" data-target=".bs-example-modal-lg" ng-click="requestShow(item)">Customize Item</button>
 				</div>
 			</ul>
