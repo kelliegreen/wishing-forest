@@ -576,6 +576,10 @@ textarea {
     margin-top: 110px;
     margin-left: 33.33%;
     margin-right: 33.33%;
+    padding-bottom: 10px;
+    background-color: rgba(203, 214, 242, .5);
+    border: 1px solid #ccc;
+    border-radius: 5px;
  
 }
 
