@@ -2,7 +2,12 @@ angular.module('wishingforest').controller('productCtrl', function ($scope, prod
 	$scope.numItems = 0;
 	$scope.test = 0;
 	$scope.addCartHide = true;
+	
+	$scope.itemTypes = [];
+	$scope.activeType = "";
+	
 	productSrvc.getItems().then(function (response) {
+        // console.log(response);
 		$scope.items = response;
 		// console.log($scope.items[2].price);
 		$scope.getItemTypes();
@@ -18,6 +23,15 @@ angular.module('wishingforest').controller('productCtrl', function ($scope, prod
 	// 		}
 	// 	// });
 	// };
+	
+	$scope.resetSort = function(val) {
+		// console.log(val);
+		if(val === null) {
+			$scope.activeType = "";
+			return true;
+		}
+		$scope.activeType = val;
+	};
 		
 
 		$scope.addCart = function (item) {
@@ -49,10 +63,10 @@ angular.module('wishingforest').controller('productCtrl', function ($scope, prod
 		};
 
 		$scope.getItemTypes = function () {
-			$scope.itemTypes = [];
 			$scope.items.forEach(function (item) {
 				if ($scope.itemTypes.indexOf(item.itemtype) === -1) {
 					$scope.itemTypes.push(item.itemtype);
+					// console.log(item.itemtype);
 				}
 			});
 			// console.log($scope.itemTypes);

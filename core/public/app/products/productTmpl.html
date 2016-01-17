@@ -71,7 +71,7 @@
 		</select>-->
 
 		<span class="filterby">Filter by: </span>
-		<select class="filter" ng-options="type as type for type in itemTypes" ng-model="sortOptions.itemtype">
+		<select class="filter" ng-options="type as type for type in itemTypes" ng-model="sortOptions.itemtype" ng-change="resetSort(sortOptions.itemtype)">
 			<option value="" selected>All</option>
 		</select>
 		<!--<script>$(function() {
@@ -80,7 +80,7 @@
 
 
 		<div class="itemscontained">
-			<ul ng-repeat="item in items | filter: sortOptions">
+			<ul ng-repeat="item in items | filter: activeType">
 				<div class="eachitem">
 					<li class="itemimgli"><img ng-src="{{ item.imgpath }}" alt=""></li>
 					<li class="center"> <strong>{{ item.itemtype }} </strong></li>
@@ -88,7 +88,7 @@
 					</li>
 					<li class="price center"> {{ item.price | currency : "$" }}</li>
 					<!--<button ng-disabled="item.available === 'No'" ng-show="item.available === 'No'" class="btn log">Unavailable</button>-->
-					<button ng-disabled="item.available === 'No'" class="btn log" ng-click="addCart(item)"><span ng-show="item.available === 'No'">Out of Stock</span> <span ng-show="item.available !== 'No'">Add to Cart</span</button>
+					<button ng-disabled="item.available === 'No'" class="btn log" ng-click="addCart(item._id)"><span ng-show="item.available === 'No'">Out of Stock</span> <span ng-show="item.available !== 'No'">Add to Cart</span</button>
 					<button class="btn log" data-toggle="modal" data-target=".bs-example-modal-lg" ng-click="requestShow(item)">Customize Item</button>
 				</div>
 			</ul>
@@ -97,7 +97,6 @@
 </div>
 
 
-<footer class="footer">Vist Wishing Forest on<a class="laurafb" target="new" href="https://www.facebook.com/WishingForest/?pnref=story"><i class="fa fa-facebook-square"></i></a>	Images courtesy of <a target="new" href="http://www.imagesosweetphotography.com/">ImageSoSweePhotography</a><a class="photographyfb"
-	target="new" href="https://www.facebook.com/ImageSoSweet-Photography-113527518714725/"><i class="fa fa-facebook-square"></i></a></footer>
+<footer class="footer"><span class="laruafbspan">Vist Wishing Forest on<a class="laurafb" target="new" href="https://www.facebook.com/WishingForest/?pnref=story"><i class="fa fa-facebook-square"></i></a> </span><br><span class="leeannfbspan">Images courtesy of <a target="new" href="http://www.imagesosweetphotography.com/">ImageSoSweePhotography</a><a class="photographyfb"target="new" href="https://www.facebook.com/ImageSoSweet-Photography-113527518714725/"><i class="fa fa-facebook-square"></i></a></span></footer>
 
 <!--ng-show="requestbutton"-->

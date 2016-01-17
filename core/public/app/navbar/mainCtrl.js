@@ -1,9 +1,11 @@
 angular.module('wishingforest').controller('mainCtrl', function ($scope) {
 	$scope.findLocal = function () {
-		if('cart') {
-			$scope.numItemsInCart = JSON.parse(localStorage.getItem('cart')).cart.length;
+		var storedCart = localStorage.getItem('cart');
+		if(storedCart) {
+			storedCart = JSON.parse(storedCart);
+			$scope.numItemsInCart = storedCart.cart.length;
 		} else {
-			$scope.empty = {};
+			$scope.empty = {cart: []};
 		}
 	};
 	$scope.findLocal();

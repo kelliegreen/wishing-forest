@@ -1,7 +1,7 @@
 angular.module('wishingforest').service('productSrvc', function ($http) {
 var itemTotal = 0;
 	this.getItems = function () {
-		return $http.get('/api/item').then(function (response) {
+		return $http.get('http://localhost:9000/api/item').then(function (response) {
 			return response.data;
 		});
 	};
@@ -25,7 +25,8 @@ var itemTotal = 0;
 			var cartObj = this.getCart();
 			var itemFound = false;
 			cartObj.cart.forEach(function (cartitem) {
-				if (item._id === cartitem.item._id) {
+                // console.log(cartitem);
+				if (item === cartitem.item) {
 					itemFound = true;
 				}
 			});
@@ -34,7 +35,7 @@ var itemTotal = 0;
 				localStorage.setItem('cart', JSON.stringify(cartObj));
 			}
 			itemTotal = cartObj.cart.length;
-			console.log(cartObj);
+			// console.log(cartObj);
 		}
 		return cartObj;
 	};
@@ -47,6 +48,12 @@ var itemTotal = 0;
 		localStorage.setItem('cart', JSON.stringify(items));
 	};
 	
-	
+    
+    
+	this.getItemsById = function (item) {
+		return $http.get('http://localhost:9000/api/item/' + item).then(function (response) {
+			return response.data;
+		});
+	};
 
 });

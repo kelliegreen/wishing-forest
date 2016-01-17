@@ -1,4 +1,4 @@
-<div ng-controller="cartCtrl">
+<!--<div ng-controller="cartCtrl">-->
 
 	<div class="productimg">
 		<img src="./app/home/img/products.jpeg">
@@ -29,20 +29,19 @@
 		</div>
 		<h1 class="yourcart">Your Cart</h1>
 		<div class="itemscontained">
-		<ul ng-repeat="item in items | orderBy: 'itemtype' track by $index">
+		<ul ng-repeat="item in cartItems | orderBy: 'itemtype' track by $index">
 			<div class="eachitem">
-				<li class="itemimgli"><img ng-src="{{ item.item.imgpath }}" alt=""></li>
-				<li class="center">{{ item.item.itemtype }} </li>
-				<li class="center crop wrapper">{{ item.item.iteminfo }} <span class="tooltip">{{ item.item.iteminfo }}</span></li>
-				<li class="price center">{{ item.item.price | currency: "$" }}</li>
-				<button class="btn log cartremovebtn" ng-click="remove(item.item, $index)">Remove Item</button>
+				<li class="itemimgli"><img ng-src="{{item.imgpath}}" alt=""></li>
+				<li class="center">{{ item.itemtype }} </li>
+				<li class="center crop wrapper">{{ item.iteminfo }} <span class="tooltip">{{ item.iteminfo }}</span></li>
+				<li class="price center">{{ item.price | currency: "$" }}</li>
+				<button id="cartremovebtn" class="btn log" ng-click="remove(item, $index)">Remove Item</button>
 		</ul>
 		</div>
 		</div>
 	</div>
-</div>
+<!--</div>-->
 
 
 
-<footer class="footer">Vist Wishing Forest on<a class="laurafb" target="new" href="https://www.facebook.com/WishingForest/?pnref=story"><i class="fa fa-facebook-square"></i></a>	Images courtesy of <a target="new" href="http://www.imagesosweetphotography.com/">ImageSoSweePhotography</a><a class="photographyfb"
-	target="new" href="https://www.facebook.com/ImageSoSweet-Photography-113527518714725/"><i class="fa fa-facebook-square"></i></a></footer>
+<footer class="footer"><span class="laruafbspan">Vist Wishing Forest on<a class="laurafb" target="new" href="https://www.facebook.com/WishingForest/?pnref=story"><i class="fa fa-facebook-square"></i></a> </span><br><span class="leeannfbspan">Images courtesy of <a target="new" href="http://www.imagesosweetphotography.com/">ImageSoSweePhotography</a><a class="photographyfb"target="new" href="https://www.facebook.com/ImageSoSweet-Photography-113527518714725/"><i class="fa fa-facebook-square"></i></a></span></footer>

@@ -5,6 +5,16 @@ module.exports = {
 	getItems: function (req, res) {
 		Item.find().then(function (response) {
 			res.send(response);
+			// var ids = req.params.ids;
+			// var items = [];
+			
+			// ids.forEach(function(id) {
+			// 	Item.find(id, function(err, data) {
+			// 		items.push(data);
+			// 	});
+			// })
+			
+			// res.send({items: items});
 		});
 	},
 

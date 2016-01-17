@@ -1,31 +1,49 @@
 angular.module('wishingforest').controller('cartCtrl', function ($scope, productSrvc) {
-	$scope.getCart = function () {
-		$scope.cart = productSrvc.getCart();
-	};
-	$scope.getCart();
-	$scope.items = $scope.cart.cart;
 
- 
-	$scope.total = 0;
+    $scope.cartItems = [];
+    $scope.total = 0;
 
-	$scope.totalPrice = function () {
-		$scope.total = 0;
-		$scope.items.forEach(function (cartitem) {
-			$scope.total += cartitem.item.price;
-		});
-		return $scope.total;
-	};
-	$scope.totalPrice();
+    $scope.totalPrice = function () {
+        $scope.total = 0;
+        $scope.cartItems.forEach(function (cartitem) {
+            $scope.total += cartitem.price;
+        });
+        return $scope.total;
+    };
 
 
-	$scope.remove = function (item, index) {
-		$scope.items.splice(index, 1);
-		productSrvc.removeCart($scope.cart);
-		$scope.totalPrice();
-		$scope.$emit('cartItem', $scope.cart.cart.length);
-	};
-	
-	
-	// $scope.numItems = productSrvc.total();
-	
+    $scope.getItems = function (items) {
+        $scope.cart.cart.forEach(function (item) {
+            productSrvc.getItemsById(item.item).then(function (item) {
+                $scope.cartItems.push(item);
+                $scope.totalPrice();
+            });
+        });
+    };
+
+    $scope.getCart = function () {
+        $scope.cart = productSrvc.getCart();
+        $scope.getItems();
+    };
+    
+    
+    $scope.getCart();
+    $scope.items = $scope.cart.cart;
+    // console.log($scope.items);
+
+    $scope.remove = function (item, index) {
+        $scope.cartItems = $scope.cartItems.splice(index, 1);
+        productSrvc.removeCart({cart: $scope.cartItems});
+        $scope.totalPrice();
+        $scope.$emit('cartItem', $scope.cartItems.length);
+        
+        // $scope.items.splice(index, 1);
+        // productSrvc.removeCart($scope.cart);
+        // $scope.cartItems = [];
+        // $scope.getCart();
+        // // 
+        // 
+    };
+    
+    // $scope.numItems = productSrvc.total();
 });

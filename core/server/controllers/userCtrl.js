@@ -42,6 +42,8 @@ module.exports = {
 		}
 	},
 	
+	
+	
 	auth: function(req, res) {
 		res.send(req.user);
 	}
